@@ -1,11 +1,11 @@
-<html>
+<html ng-app="SocialFeed">
 	<head>
 		<title>Social Media Feed</title>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body>
-		<h1 class="page-title">Push</h1>
+	<body ng-controller="SocialFeedCtrl">
+		<h1 class="page-title">Social Push</h1>
 		<div class="row feed">
 			<div class="col-md-4">
 				<h4>Login:</h4>
@@ -15,13 +15,9 @@
 				<input type="text" size="30" placeholder="Password">
 			</div>
 			<div class="col-md-8">
-				<h3>
+				<h3 ng-repeat="meow in meows">
 					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					Hello
-				</h3>
-				<h3>
-					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					Hello
+					{{ meow }}
 				</h3>
 			</div>
 		</div>
@@ -30,11 +26,18 @@
 	<!-- include javascript -->
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript">
-		var meows = [
-			'hello',
-			'hi'
-		];
-		console.log(meows);
+		var app = angular.module('SocialFeed', []);
+
+		app.controller('SocialFeedCtrl', function($scope) {
+
+			$scope.meows = [
+				'hello',
+				'hi',
+				'add oil'
+			];
+
+		});
+
 	</script>
 
 </html>
